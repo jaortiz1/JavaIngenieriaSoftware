@@ -1,0 +1,8 @@
+package sevici;
+
+public class Coordenadas {
+
+	private Double latitud, longitud;
+	private Hemisferio hemisferio;
+	
+}

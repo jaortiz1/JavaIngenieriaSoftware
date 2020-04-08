@@ -1,0 +1,36 @@
+package sevici;
+
+import utiles.Checkers;
+
+public class Coordenadas {
+
+	private Double latitud, longitud;
+	private Hemisferio hemisferio;
+	public Coordenadas(Double latitud, Double longitud, Hemisferio hemisferio) {
+		super();
+		this.latitud = latitud;
+		this.longitud = longitud;
+		this.hemisferio = hemisferio;
+	}
+	public Coordenadas() {
+		super();
+	}
+	public Coordenadas(String latitud, String longitud, String hemisferio) {
+		Double lat, lon;
+		Hemisferio h;
+		lat = (Double.parseDouble(latitud));
+		lon = Double.parseDouble(longitud);
+		if(hemisferio.toUpperCase()=="NORTE") {
+			h = Hemisferio.Norte;
+		}else if(hemisferio.toUpperCase()=="SUR") {
+			h = Hemisferio.Sur;
+		}else {
+			throw new IllegalArgumentException();
+		}
+		Checkers.checkNoNull(lat, lon);
+		this.latitud = lat;
+		this.longitud = lon;
+		this.hemisferio = h;
+	}
+	
+}

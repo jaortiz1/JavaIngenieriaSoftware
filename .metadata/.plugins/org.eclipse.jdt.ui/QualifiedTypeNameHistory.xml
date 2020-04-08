@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="puntos.circulo.Circulo"/>
+<fullyQualifiedTypeName name="puntos.punto.Punto"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.time.LocalDate"/>
+<fullyQualifiedTypeName name="java.time.Month"/>
+<fullyQualifiedTypeName name="fp.tipo.test.LibroTest"/>
+<fullyQualifiedTypeName name="fp.tipo.Biblioteca"/>
+<fullyQualifiedTypeName name="fp.tipo.test.TestBiblioteca"/>
+<fullyQualifiedTypeName name="fp.tipo.EnumeradoLibro"/>
+<fullyQualifiedTypeName name="java.util.Set"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
+<fullyQualifiedTypeName name="java.lang.Comparable"/>
+<fullyQualifiedTypeName name="fp.trenes.EstacionTrenInterfaz"/>
+<fullyQualifiedTypeName name="java.time.Duration"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.time.LocalTime"/>
+<fullyQualifiedTypeName name="fp.trenes.TrayectoTren"/>
+<fullyQualifiedTypeName name="fp.trenes.TipoTren"/>
+<fullyQualifiedTypeName name="fp.trenes.Test.TestTrayecto"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="sevici.Hemisferio"/>
+<fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
+<fullyQualifiedTypeName name="utiles.Checkers"/>
+</qualifiedTypeNameHistroy>

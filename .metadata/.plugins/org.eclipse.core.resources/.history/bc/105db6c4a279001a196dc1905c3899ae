@@ -1,0 +1,14 @@
+package sevici;
+
+public class Coordenadas {
+
+	private Double latitud, longitud;
+	private Hemisferio hemisferio;
+	public Coordenadas(Double latitud, Double longitud, Hemisferio hemisferio) {
+		super();
+		this.latitud = latitud;
+		this.longitud = longitud;
+		this.hemisferio = hemisferio;
+	}
+	
+}
