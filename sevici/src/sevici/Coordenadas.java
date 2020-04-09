@@ -15,6 +15,14 @@ public class Coordenadas implements Comparable<Coordenadas>{
 		this.longitud = longitud;
 		this.hemisferio = hemisferio;
 	}
+	public Coordenadas(Double latitud, Double longitud) {
+		super();
+		Checkers.checkNoNull(latitud, longitud);
+		Checkers.check("", latitud>=-90 && latitud <=90);
+		Checkers.check("", longitud>=-180 && longitud<=180);
+		this.latitud = latitud;
+		this.longitud = longitud;
+	}
 	public Coordenadas() {
 		super();
 		this.latitud = 0.0;

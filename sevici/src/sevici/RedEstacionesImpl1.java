@@ -1,7 +1,12 @@
 package sevici;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 public class RedEstacionesImpl1 implements RedEstaciones{
 
@@ -63,8 +68,44 @@ public class RedEstacionesImpl1 implements RedEstaciones{
 		// TODO Auto-generated method stub
 		return this.getEstaciones().size();
 	}
+	public List<Estacion> getEstacionesBicisDisponibles(int k){
+		List<Estacion> result = new ArrayList<Estacion>();
+		return getEstaciones().stream().filter(estacion->estacion.getBicisDisponibles()>=k).collect(Collectors.toList());
+	}
 	
-	
+	public SortedSet<Estacion> getEstacionesCercanas(Coordenadas cs, double d){
+		SortedSet<Estacion> result = new TreeSet<Estacion>();
+		for (Estacion estacion : getEstaciones()) {
+			if(estacion.getUbicacion().getDistancia(cs)<=d) {
+				result.add(estacion);
+			}
+		}
+		return result;
+	}
+	/**
+	 * Set<Coordenadas> getUbicacionEstaciones(): obtiene un conjunto con la ubicación de
+todas las estaciones.
+• Set<Coordenadas> getUbicacionEstacionesDisponibles(int k): obtiene un conjunto con
+la ubicación de las estaciones que tienen un número mínimo de bicicletas disponibles.
+• Estacion getEstacionMasBicisDisponibles(): obtiene la estación que tiene más bicicletas
+disponibles.
+	 */
+	public Set<Coordenadas> getUbicacionEstaciones(){
+		Set<Coordenadas> result = new HashSet<Coordenadas>();
+		for(Estacion e: getEstacionesBicisDisponibles(1)) {
+			result.add(e.getUbicacion());
+		}
+		return result;
+	}
+	public Estacion getEstacionMasBicisDisponibles() {
+		Estacion estacionGanadora = null;
+		for(Estacion e:getEstaciones()) {
+			if(estacionGanadora == null || e.getBicisDisponibles()>estacionGanadora.getBicisDisponibles()) {
+				estacionGanadora = e;
+			}
+		}
+		return estacionGanadora;
+	}
 
 	
 
