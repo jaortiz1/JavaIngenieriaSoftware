@@ -1,0 +1,30 @@
+package sevici;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class RedEstacionesImpl1 implements RedEstaciones{
+
+	List<Estacion> estaciones;
+
+	@Override
+	public void anyadirEstaciones(Estacion e) {
+		this.getEstaciones().add(e);
+	}
+
+	@Override
+	public List<Estacion> getEstaciones() {
+		return new ArrayList<Estacion>(this.estaciones);
+	}
+
+	@Override
+	public Integer getNumeroEstaciones() {
+		// TODO Auto-generated method stub
+		return this.getEstaciones().size();
+	}
+	
+	
+
+	
+
+}

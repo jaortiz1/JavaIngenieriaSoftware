@@ -12,4 +12,17 @@ public  class Checkers {
 			throw new IllegalArgumentException(msg);
 		}
 	}
+	
+	public static void CheckPuestos(Integer puestos) {
+		if(puestos<0) {
+			throw new IllegalArgumentException();
+		}
+	}
+	 public static void checkBicisDisponibles(Integer bicis, Integer puestos) {
+		 if(bicis <0 || bicis>puestos) {
+			 throw new IllegalArgumentException();
+		 }
+		 
+	 }
+	 
 }

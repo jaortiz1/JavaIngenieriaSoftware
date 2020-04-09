@@ -1,7 +1,5 @@
 package sevici;
 
-import utiles.Checkers;
-
 public class Estacion implements Comparable<Estacion>{
 
 	/**
@@ -26,7 +24,6 @@ tiene al menos una bicicleta disponible, y false si no hay ninguna.
 	public Estacion(String nombre, String nombreEstacion, Integer puestos, Integer bicisDisponibles,
 			Coordenadas ubicacion, boolean tieneBicisDisponibles) {
 		super();
-		Checkers.checkBicisDisponibles(bicisDisponibles, puestos);
 		this.nombre = nombre;
 		this.nombreEstacion = nombreEstacion;
 		this.puestos = puestos;
@@ -61,7 +58,7 @@ tiene al menos una bicicleta disponible, y false si no hay ninguna.
 	public void setNombreEstacion(String nombreEstacion) {
 		this.nombreEstacion = nombreEstacion;
 	}
-	public Integer getPuestosDisponibles() {
+	public Integer getPuestos() {
 		return puestos;
 	}
 	public void setPuestos(Integer puestos) {
@@ -79,7 +76,7 @@ tiene al menos una bicicleta disponible, y false si no hay ninguna.
 	public void setUbicacion(Coordenadas ubicacion) {
 		this.ubicacion = ubicacion;
 	}
-	public boolean tieneBicisDisponibles() {
+	public boolean isTieneBicisDisponibles() {
 		return tieneBicisDisponibles;
 	}
 	public void setTieneBicisDisponibles(boolean tieneBicisDisponibles) {

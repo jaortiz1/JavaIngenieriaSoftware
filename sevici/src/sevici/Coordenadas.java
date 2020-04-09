@@ -99,6 +99,11 @@ public class Coordenadas implements Comparable<Coordenadas>{
 		// TODO Auto-generated method stub
 		return this.compareTo(c);
 	}
+	public Double getDistancia(Coordenadas c) {
+		Double distancia = Math.abs(this.getLatitud()-c.getLatitud()+this.getLongitud()-c.getLongitud());
+		return distancia;
+	}
+	
 	
 	
 }
