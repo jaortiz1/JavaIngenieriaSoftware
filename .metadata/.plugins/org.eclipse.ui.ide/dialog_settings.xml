@@ -22,6 +22,9 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\Juan\Desktop\JavaIngenieriaSoftware\sevici"/>
+			<item value="C:\Users\Juan\Desktop\JavaIngenieriaSoftware\"/>
+			<item value="C:\Users\Juan\Desktop\JavaIngenieriaSoftware\Nobel"/>
 			<item value="C:\Users\juand\Desktop\JavaIngenieriaSoftware\Nobel"/>
 			<item value="C:\Users\Juan\Desktop\workspace\Trenes"/>
 		</list>
