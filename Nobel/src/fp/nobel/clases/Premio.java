@@ -1,22 +1,27 @@
 package fp.nobel.clases;
 
+import fp.utiles.Checkers;
+
 public class Premio {
 	private Integer anyo;
-	private Genero categoria;
+	private String categoria;
 	private String nombre;
 	private String apellidos;
+	private Genero genero;
 	private Integer anyoNacimiento;
 	
 	public Premio() {
 		super();
 	}
 
-	public Premio(Integer anyo, Genero categoria, String nombre, String apellidos, Integer anyoNacimiento) {
+	public Premio(Integer anyo, String categoria, String nombre, String apellidos, Genero genero,
+			Integer anyoNacimiento) {
 		super();
+		Checkers.check("Año del premio es menor que la fecha de nacimiento.", anyo >= anyoNacimiento);
 		this.anyo = anyo;
-		this.categoria = categoria;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
+		this.genero = genero;
 		this.anyoNacimiento = anyoNacimiento;
 	}
 
@@ -24,7 +29,7 @@ public class Premio {
 		return anyo;
 	}
 
-	public Genero getCategoria() {
+	public String getCategoria() {
 		return categoria;
 	}
 
@@ -36,15 +41,23 @@ public class Premio {
 		return apellidos;
 	}
 
+	public Genero getGenero() {
+		return genero;
+	}
+
 	public Integer getAnyoNacimiento() {
 		return anyoNacimiento;
 	}
-
+	
+	public Integer getEdadPremiado() {
+		return getAnyo()-getAnyoNacimiento();
+	}
+	
 	public void setAnyo(Integer anyo) {
 		this.anyo = anyo;
 	}
 
-	public void setCategoria(Genero categoria) {
+	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
 
@@ -54,6 +67,10 @@ public class Premio {
 
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
+	}
+
+	public void setGenero(Genero genero) {
+		this.genero = genero;
 	}
 
 	public void setAnyoNacimiento(Integer anyoNacimiento) {
@@ -68,6 +85,7 @@ public class Premio {
 		result = prime * result + ((anyoNacimiento == null) ? 0 : anyoNacimiento.hashCode());
 		result = prime * result + ((apellidos == null) ? 0 : apellidos.hashCode());
 		result = prime * result + ((categoria == null) ? 0 : categoria.hashCode());
+		result = prime * result + ((genero == null) ? 0 : genero.hashCode());
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
 		return result;
 	}
@@ -96,10 +114,9 @@ public class Premio {
 				return false;
 		} else if (!apellidos.equals(other.apellidos))
 			return false;
-		if (categoria == null) {
-			if (other.categoria != null)
-				return false;
-		} else if (!categoria.equals(other.categoria))
+		if (categoria != other.categoria)
+			return false;
+		if (genero != other.genero)
 			return false;
 		if (nombre == null) {
 			if (other.nombre != null)
@@ -112,8 +129,9 @@ public class Premio {
 	@Override
 	public String toString() {
 		return "Premio [anyo=" + anyo + ", categoria=" + categoria + ", nombre=" + nombre + ", apellidos=" + apellidos
-				+ ", anyoNacimiento=" + anyoNacimiento + "]";
+				+ ", genero=" + genero + ", anyoNacimiento=" + anyoNacimiento + "]";
 	}
+
 	
 	
 	

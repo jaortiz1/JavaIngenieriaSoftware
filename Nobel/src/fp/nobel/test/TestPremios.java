@@ -26,7 +26,7 @@ public class TestPremios {
 	private static Premio quimica1 = new Premio(1911,"chemistry","Marie","Curie née Sklodowska",Genero.FEMALE,1867);
 	
 	
-	private static Premios premios = new PremiosStream();
+	private static PremioInterfaz premios = new PremiosStream();
 	//private static Premios premios = new PremiosBucle();
 	
 	

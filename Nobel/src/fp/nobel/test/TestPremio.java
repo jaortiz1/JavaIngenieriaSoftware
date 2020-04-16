@@ -6,8 +6,8 @@ package fp.nobel.test;
  * @since 2019-02-26
  */
 
-import fp.nobel.Genero;
-import fp.nobel.Premio;
+import fp.nobel.clases.Genero;
+import fp.nobel.clases.Premio;
 
 public class TestPremio {
 		
