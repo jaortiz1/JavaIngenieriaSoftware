@@ -8,6 +8,8 @@ import fp.utiles.Checkers;
 import fp.utiles.Ficheros;
 
 public class FactoriaNobel {
+	
+	//clase que lee premios y los parsea convirtiendolos en un objeto premios bucle
 	public static Premio parsearPremio(String linea) {
 		String [] splits = linea.split(",");
 		Checkers.check("Linea con tamaño erróneo", splits.length==6);
@@ -20,12 +22,12 @@ public class FactoriaNobel {
 		Integer birthDate = Integer.valueOf(splits[5].trim());
 		return new Premio(year, category, name, surname, gender, birthDate);
 	}
-	public static Set<Premio> leerPremios(String ruta) {
+	public static PremiosBucle leerPremios(String ruta) {
 		Set<Premio> result = new HashSet<Premio>();
 		List<String> lineas = Ficheros.leeFicheros(ruta, true);
 		for(String linea : lineas) {
 			result.add(parsearPremio(linea));
 		}
-		return result;
+		return new PremiosBucle(result);
 	}
 }

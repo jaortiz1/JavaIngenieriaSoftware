@@ -1,4 +1,13 @@
 package fp.nobel.test;
+
+import java.util.Map;
+import java.util.Set;
+
+import fp.nobel.clases.Genero;
+import fp.nobel.clases.Premio;
+import fp.nobel.clases.PremioInterfaz;
+import fp.nobel.clases.PremiosBucle;
+
 /**
  * @author Daniel Mateos
  * @author José A. Troyano
@@ -6,11 +15,7 @@ package fp.nobel.test;
  * @since 2019-03-10
  */
 
-import fp.nobel.Genero;
-import fp.nobel.Premio;
-import fp.nobel.Premios;
-import fp.nobel.PremiosBucle;
-import fp.nobel.PremiosStream;
+
 
 
 public class TestPremios {
@@ -26,14 +31,14 @@ public class TestPremios {
 	private static Premio quimica1 = new Premio(1911,"chemistry","Marie","Curie née Sklodowska",Genero.FEMALE,1867);
 	
 	
-	private static PremioInterfaz premios = new PremiosStream();
-	//private static Premios premios = new PremiosBucle();
+	//private static PremioInterfaz premios = new PremiosStream();
+	private static PremioInterfaz premios = new PremiosBucle();
 	
 	
 	public static void main(String[] args) {
 		testConstructor();
-		testObtenerPremiosDeGenero();
-		testCalcularNumeroPremiadosMasJovenesDe();
+		//testObtenerPremiosDeGenero();
+		//testCalcularNumeroPremiadosMasJovenesDe();
 		testCalcularMediaEdadPorCategoria();
 	}
 
@@ -41,17 +46,16 @@ public class TestPremios {
 	private static void testConstructor() {
 		System.out.println("\nTEST del Constructor");
 		try {
-			premios.añadirPremio(fisica1);
-			premios.añadirPremio(fisica2);
-			premios.añadirPremio(fisica3);
-			premios.añadirPremio(fisica4);
-			premios.añadirPremio(fisica5);
-			premios.añadirPremio(fisica6);
-			premios.añadirPremio(fisica7);
-			premios.añadirPremio(fisica8);
-			premios.añadirPremio(fisica9);
-			premios.añadirPremio(quimica1);
-
+			premios.anyadirPremio(fisica1);
+			premios.anyadirPremio(fisica2);
+			premios.anyadirPremio(fisica3);
+			premios.anyadirPremio(fisica4);
+			premios.anyadirPremio(fisica5);
+			premios.anyadirPremio(fisica6);
+			premios.anyadirPremio(fisica7);
+			premios.anyadirPremio(fisica8);
+			premios.anyadirPremio(fisica9);
+			premios.anyadirPremio(quimica1);
 			System.out.println("  PREMIOS: "+ premios + "\n");
 		} catch(Exception e) {
 			System.out.println("Excepción capturada:\n   " + e);	
@@ -85,6 +89,8 @@ public class TestPremios {
 	private static void testCalcularMediaEdadPorCategoria() {
 		System.out.println("\nTEST de calcularMediaEdadPorCategoria");
 		try {
+			Map<String,Double> result = premios.calcularMediaEdadPorCategoria();
+			Set<String> claves = result.keySet();
 			System.out.println("  MEDIAS EDAD: " + premios.calcularMediaEdadPorCategoria());
 		} catch(Exception e) {
 			System.out.println("Excepción capturada:\n   " + e);	

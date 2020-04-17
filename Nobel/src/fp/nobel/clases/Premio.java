@@ -23,6 +23,7 @@ public class Premio {
 		this.apellidos = apellidos;
 		this.genero = genero;
 		this.anyoNacimiento = anyoNacimiento;
+		this.categoria = categoria;
 	}
 
 	public Integer getAnyo() {

@@ -1,6 +1,7 @@
 package fp.nobel.clases;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -79,16 +80,29 @@ public class PremiosStream implements PremioInterfaz {
 		return null;
 	}
 
-	@Override
-	public Integer calcularNumeroPremiadosMasJovenes(Integer n) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
+	
+
+	
+
+
 
 	@Override
 	public Map<String, Double> calcularMediaEdadPorCategoria() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Map<String, List<Integer>> calcularEdadesPorCategoria() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public long calcularNumeroPremiadosMasJovenesDe(Integer n) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
