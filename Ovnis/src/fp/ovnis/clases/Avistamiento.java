@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 
 import fp.ovnis.utiles.Checkers;
 
-public class Avistamiento {
+public class Avistamiento implements Comparable{
 
 	private LocalDate fecha;
 	private String lugar;
@@ -29,7 +29,7 @@ public class Avistamiento {
 		Coordenadas coordenadas = new Coordenadas(splits[4].trim());
 		Checkers.check("", duracion>0);
 		Checkers.check("", fecha.compareTo(LocalDate.now())<=1);
-		this.fecha = fecha;
+		this.fecha = LocalDate.now();
 		this.lugar = lugar;
 		this.duracion = duracion;
 		this.forma = forma;
@@ -142,6 +142,20 @@ public class Avistamiento {
 	
 	public Double getdistancia(Avistamiento av) {
 		return getUbicacion().getDistancia(av.getUbicacion());
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		int result = 0;
+		if(o instanceof Avistamiento) {
+			Avistamiento p = (Avistamiento)o;
+			if(this.getFecha().equals(p.getFecha())) {
+				result = 1;
+			};
+		}
+		return result;
+		
 	}
 
 

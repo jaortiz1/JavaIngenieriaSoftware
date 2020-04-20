@@ -1,6 +1,8 @@
 package fp.ovnis.clases;
 
 import java.time.LocalDate;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -25,28 +27,47 @@ public class AvistamientoImpl1 implements Avistamientos {
 	
 	
 	public void anyadirAvistamiento(Avistamiento av) {
-		// TODO Auto-generated method stub
 		getAvistamientos().add(av);
 	}
 
 	
 	public Integer getNumeroAvistamientosFecha(LocalDate f) {
-		return null;
+		Integer result = 0;
+		for(Avistamiento a : getAvistamientos()) {
+			if(a.getFecha().equals(f)) {
+				result+=1;
+			}
+		}
+		return result;
 	}
 
 	@Override
 	public Set<Avistamiento> getAvistamientosCercanosUbicacion(Coordenadas c, Double d) {
+		
+		
 		return null;
 	}
 
 	@Override
 	public Boolean existeAvistamientoLugarAnyo(String l, Integer a) {
-		return null;
+		//boolean result = false;
+		//PONER MEJOR Boolean, objeto tipo boleano
+		Boolean result = false;
+		for(Avistamiento av : getAvistamientos()) {
+			if(av.getLugar().toLowerCase().equals(l.toLowerCase())
+					&& av.getAnyo().equals(a)) {
+				result = true;
+				//si en algun momento hago true paro
+				break;
+			}
+		}
+		return result;
 	}
 
 	@Override
 	public Avistamiento getAvistamientoMayorDuracion() {
-		return null;
+		//se le tiene que pasar un comparador
+		return Collections.max(avistamientos, Comparator.comparing(av->av.getDuracion()));
 	}
 	//No devolvemos copia porque no se puede modificar el original, si no la copia, ya que es un map
 	@Override
