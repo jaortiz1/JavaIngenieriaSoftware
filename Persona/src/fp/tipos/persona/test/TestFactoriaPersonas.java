@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import fp.tipos.persona.FactoriaPersonas;
 import fp.tipos.persona.Persona;
@@ -13,7 +15,7 @@ import fp.tipos.persona.funcionales.ComparadorPersonaPorEdad;
 public class TestFactoriaPersonas {
 
 	public static void main(String[] args) {
-		Persona p1 = FactoriaPersonas.create("1234x, garcia, gutierrez, jorge, 12/12/2012");
+		Persona p1 = FactoriaPersonas.create("1234x, jorge, gutierrez, garcia, 12/12/2012");
 		Persona p2 = FactoriaPersonas.create("1234a, lel, lel, lel, 10/10/2010");
 		List<Persona> personas = new ArrayList<Persona>();
 		personas.add(p1);
@@ -27,13 +29,69 @@ public class TestFactoriaPersonas {
 		//SE USA FUNCIONES LAMBDAS PARA NO TENER MUCHAS CLASES COMPARATOR
 		//Comparator<Persona> cmpConLambda = Comparator.comparing();
 		System.out.println(personas.stream().map(x->x.getDni()).collect(Collectors.toList()));
+		System.out.println("mapToNombre");
 		System.out.println(mapToNombre(personas));
 		//imita el orden del compareTo
 		Comparator<Persona> comp1 = Comparator.naturalOrder();
 		//aqui no vale x->x.getEdad() ya que no sabe el tipo, puede fallar, getFecha sin ()
 		Comparator<Persona> comp2 = Comparator.comparing(Persona::getFechaNacimiento)
 				.thenComparing(Comparator.naturalOrder());
-
+		
+		System.out.println(personas.stream().distinct().count());
+		System.out.println(personas.stream()
+				.filter(p->p.getNombre().toLowerCase().equals("jorge"))
+				.collect(Collectors.toList()));
+		//nos devuelve optional si no hay elemento con findany, con or else: si no esta te devuelvo
+		//algo distinto de persona
+		System.out.println(personas.stream()
+				.filter(p->p.getNombre().toLowerCase().equals("ejemploNoExiste"))
+				.findAny().orElse(null));
+		boolean result = personas.stream().allMatch(p->p.getFechaNacimiento().getYear()>1981);
+		System.out.println("¿Toda la lista de personas es mayor de 1981? ");
+		System.out.println(result);
+		System.out.println("Elementos sin repetir "+personas.stream().distinct());
+		//te da el primero que encuentre
+		System.out.println(personas.stream().filter(p->p.getNombre().toLowerCase().equals("jorge"))
+				.findFirst().orElse(null));
+		System.out.println(personas);
+		Predicate<Persona> predicate = p -> p.getNombre().equals("jorge");
+		//le decimos los que no son jorge
+		System.out.println(personas.stream()
+				.filter(predicate.negate())
+				.collect(Collectors.toList()));
+		
+		//FOR EACH, hay que pasarle algo que devuelva void, solo modificaciones
+		//implementamos un consumer para mostrarlos por pantalla
+		personas.stream()
+		.filter(predicate.negate())
+		.forEach(p->System.out.println(p));
+		personas.stream().forEach(p->p.setApellido2("sin apellidos"));
+		
+		System.out.println(personas);
+		//uso del map
+		//stream<t> -> stream<r> paso de un objeto a otro
+		//con el map no modifico el objeto original solo los muestro
+		personas.stream()
+		.map(p->new Persona(p.getDni(),"sin nombre",p.getApellido1(),p.getApellido2()
+				,p.getFechaNacimiento())).forEach(p->System.out.println(p));
+		System.out.println("vemos que tienen nombre");
+		System.out.println(personas);
+		//creamos un stream con distintos valores
+		Stream<Integer> stream = Stream.of(1,2,5,3,4);
+		//System.out.println(stream.collect(Collectors.toList()));
+		//da error porque una vez que se trabaja con el no se puede volver a trabajar, mirar 
+		//linea de arriba
+		//stream.sorted().collect(Collectors.toList());
+		List<Integer> lista = stream.collect(Collectors.toList());
+		lista =lista.stream()
+				.sorted(Comparator.reverseOrder())
+				.collect(Collectors.toList());
+		System.out.println(lista);
+		
+		//COLLECTORS
+		/*
+		 * 
+		 */
 	}
 
 	private static List<String> mapToNombre(List<Persona> personas) {

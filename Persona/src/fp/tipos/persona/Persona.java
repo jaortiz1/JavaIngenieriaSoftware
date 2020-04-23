@@ -45,6 +45,7 @@ public class Persona implements Comparable<Persona>{
 	public LocalDate getFechaNacimiento() {
 		return fechaNacimiento;
 	}
+	
 	public void setDni(String dni) {
 		this.dni = dni;
 	}
@@ -114,7 +115,7 @@ public class Persona implements Comparable<Persona>{
 	}
 	@Override
 	public int compareTo(Persona o) {
-		return this.getDni().compareTo(o.getDni());
+		return this.getNombre().compareTo(o.getNombre());
 	}
 	public String getIniciales() {
 		// TODO Auto-generated method stub

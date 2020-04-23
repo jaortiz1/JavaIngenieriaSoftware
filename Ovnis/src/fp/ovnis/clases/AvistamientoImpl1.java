@@ -8,12 +8,18 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class AvistamientoImpl1 implements Avistamientos {
 
 	private Set<Avistamiento> avistamientos;
-	public AvistamientoImpl1(List<Avistamiento> avistamientos) {
-		this.avistamientos = new HashSet<Avistamiento>(avistamientos);
+	
+	public AvistamientoImpl1() {
+		
+	}
+	public AvistamientoImpl1(Stream<Avistamiento> stream) {
+		avistamientos = stream.collect(Collectors.toSet());
 	}
 	
 	public boolean equals(Object o) {
@@ -44,8 +50,9 @@ public class AvistamientoImpl1 implements Avistamientos {
 	@Override
 	public Set<Avistamiento> getAvistamientosCercanosUbicacion(Coordenadas c, Double d) {
 		
-		
-		return null;
+		Set<Avistamiento> result = new HashSet<Avistamiento>();
+		result = result.stream().filter(a->a.getdistancia(a)<=d).collect(Collectors.toSet());
+		return result;
 	}
 
 	@Override
@@ -110,7 +117,7 @@ public class AvistamientoImpl1 implements Avistamientos {
 	@Override
 	public Set<Avistamiento> getAvistamientos() {
 		// TODO Auto-generated method stub
-		return null;
+		return new HashSet<Avistamiento>(this.avistamientos);
 	}
 
 }

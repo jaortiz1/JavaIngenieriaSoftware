@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class RedEstacionesImpl1 implements RedEstaciones{
 
@@ -17,9 +18,9 @@ public class RedEstacionesImpl1 implements RedEstaciones{
 		super();
 	}
 
-	public RedEstacionesImpl1(List<Estacion> estaciones) {
+	public RedEstacionesImpl1(Stream<Estacion> stream) {
 		super();
-		this.estaciones = estaciones;
+		this.estaciones = stream.collect(Collectors.toList());
 	}
 
 	
@@ -83,11 +84,11 @@ public class RedEstacionesImpl1 implements RedEstaciones{
 		return result;
 	}
 	/**
-	 * Set<Coordenadas> getUbicacionEstaciones(): obtiene un conjunto con la ubicación de
+	 * Set<Coordenadas> getUbicacionEstaciones(): obtiene un conjunto con la ubicaciï¿½n de
 todas las estaciones.
-• Set<Coordenadas> getUbicacionEstacionesDisponibles(int k): obtiene un conjunto con
-la ubicación de las estaciones que tienen un número mínimo de bicicletas disponibles.
-• Estacion getEstacionMasBicisDisponibles(): obtiene la estación que tiene más bicicletas
+ï¿½ Set<Coordenadas> getUbicacionEstacionesDisponibles(int k): obtiene un conjunto con
+la ubicaciï¿½n de las estaciones que tienen un nï¿½mero mï¿½nimo de bicicletas disponibles.
+ï¿½ Estacion getEstacionMasBicisDisponibles(): obtiene la estaciï¿½n que tiene mï¿½s bicicletas
 disponibles.
 	 */
 	public Set<Coordenadas> getUbicacionEstaciones(){

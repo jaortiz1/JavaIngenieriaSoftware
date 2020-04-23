@@ -6,8 +6,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="Sys"/>
+		<item key="selection" value="getNo"/>
 		<list key="findhistory">
+			<item value="getnoººº"/>
+			<item value="getno"/>
 			<item value="sysº"/>
 			<item value="sys"/>
 			<item value="syso"/>
