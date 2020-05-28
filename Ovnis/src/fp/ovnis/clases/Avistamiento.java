@@ -2,6 +2,8 @@ package fp.ovnis.clases;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 import fp.ovnis.utiles.Checkers;
 
@@ -13,6 +15,7 @@ public class Avistamiento implements Comparable{
 	private Forma forma;
 	private Coordenadas ubicacion;
 	private Integer anyo;
+	private List<Persona> testigos;
 	
 	
 	public Avistamiento() {
@@ -34,6 +37,7 @@ public class Avistamiento implements Comparable{
 		this.duracion = duracion;
 		this.forma = forma;
 		this.ubicacion = coordenadas;
+		this.testigos = new ArrayList<Persona>();
 	}
 
 
@@ -41,6 +45,17 @@ public class Avistamiento implements Comparable{
 		return fecha;
 	}
 
+
+	public List<Persona> getTestigos() {
+		return new ArrayList<Persona>(testigos);
+	}
+	
+	public void anyadeTestigos(Persona p) {
+		testigos.add(p);
+	}
+	public void setTestigos(List<Persona> testigos) {
+		this.testigos = testigos;
+	}
 
 	public String getLugar() {
 		return lugar;

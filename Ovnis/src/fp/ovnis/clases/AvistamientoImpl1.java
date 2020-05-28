@@ -119,5 +119,10 @@ public class AvistamientoImpl1 implements Avistamientos {
 		// TODO Auto-generated method stub
 		return new HashSet<Avistamiento>(this.avistamientos);
 	}
+	@Override
+	public Set<Persona> getTestigosAvistamientos() {
+		
+		return null;
+	}
 
 }

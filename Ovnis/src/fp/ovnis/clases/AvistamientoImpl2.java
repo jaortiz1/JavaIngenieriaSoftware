@@ -1,6 +1,9 @@
 package fp.ovnis.clases;
 
 import java.time.LocalDate;
+import java.util.Set;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 //con extends heredo todos los metodos para solo modificar los que me interesan
 public class AvistamientoImpl2 extends AvistamientoImpl1 implements Avistamientos{
@@ -22,6 +25,11 @@ public class AvistamientoImpl2 extends AvistamientoImpl1 implements Avistamiento
 				.filter(a->a.getFecha().equals(fecha))
 				.count();
 		return result.intValue();
+	}
+	public Set<Persona> getTestigosAvistamientos(){
+		//tengo un listado de avistamientos y cada avistamiento una lista de personas
+		
+		return getAvistamientos().stream().flatMap(av->av.getTestigos().stream()).collect(Collectors.toSet());
 	}
 	
 

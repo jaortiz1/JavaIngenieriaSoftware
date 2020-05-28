@@ -13,4 +13,5 @@ public interface Avistamientos {
 	Avistamiento getAvistamientoMayorDuracion();
 	Map<LocalDate, Set<Avistamiento>> getAvistamientosPorFecha();
 	Map<Integer, Long> getNumeroAvistamientosPorAno();
+	Set<Persona> getTestigosAvistamientos();
 }
